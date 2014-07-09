@@ -5,19 +5,19 @@ describe Rectangle do
 
   context "calculates perimeter in mm" do
     it "3000 mm for sides 1m and 50 cm" do
-      #Length.new(1, Unit(Meter.new))
-      length = Length.new(1, Meter.new)
-      breadth = Length.new(50, Centimeter.new)
-      parameter = Length.new(3000, Millimeter.new)
+      #Length.new(1, Unit(Unit::M))
+      length = Length.new(1, Unit::M)
+      breadth = Length.new(50, Unit::CM)
+      parameter = Length.new(3000, Unit::MM)
 
       rectangle =Rectangle.new(length, breadth)
       expect(rectangle.perimeter).to eq(parameter)
     end
 
     it "1820 mm for sides 90cm and 10mm " do
-      length = Length.new(90, Centimeter.new)
-      breadth = Length.new(10, Millimeter.new)
-      perimeter = Length.new(1820, Millimeter.new)
+      length = Length.new(90, Unit::CM)
+      breadth = Length.new(10, Unit::MM)
+      perimeter = Length.new(1820, Unit::MM)
 
       rectangle =Rectangle.new(length, breadth)
       expect(rectangle.perimeter).to eq(perimeter)
@@ -27,8 +27,8 @@ describe Rectangle do
 
 
   context "equality" do
-    let(:length) {Length.new(30, Centimeter.new)}
-    let(:breadth)  {Length.new(10, Centimeter.new)}
+    let(:length) {Length.new(30, Unit::CM)}
+    let(:breadth)  {Length.new(10, Unit::CM)}
     let(:rectangle) {Rectangle.new(length, breadth)}
     let(:rectangle1) {Rectangle.new(length, breadth)}
 
@@ -41,7 +41,7 @@ describe Rectangle do
     end
 
     it 'same perimeter but different sides should not be equal' do
-      new_length = Length.new(20,Centimeter.new)
+      new_length = Length.new(20,Unit::CM)
       rectangle2 = Rectangle.new(new_length, new_length)
       expect(rectangle.perimeter).to eq(rectangle2.perimeter)
       expect(rectangle).to_not eq(rectangle2)
@@ -50,8 +50,8 @@ describe Rectangle do
   end
 
   context "equality checks" do
-    let(:length) { Length.new(30, Centimeter.new) }
-    let(:breadth) { Length.new(10, Meter.new) }
+    let(:length) { Length.new(30, Unit::CM) }
+    let(:breadth) { Length.new(10, Unit::M) }
 
     let(:rectangle) do
       Rectangle.new(length, breadth)
