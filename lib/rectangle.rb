@@ -1,30 +1,30 @@
 # calculates perimeter for rectangle
 class Rectangle
+  attr_reader :length, :breadth
+
   def initialize length, breadth
-    @length = to_mm length
-    @breadth =to_mm breadth
+    @length = length
+    @breadth =breadth
   end
 
   def perimeter
-    [2*(@length+@breadth),"mm"]
+    Length.new(2*(@length.value_in_mm + @breadth.value_in_mm), Unit::MM)
   end
 
-
-private
-  def to_mm measurement
-    length, unit = measurement
-    case unit
-      when "m"
-        return length * 1000
-      when "cm"
-        return length *10
-      when "mm"
-        return length
-      else
-        return 0
-    end
+  def ==(other)
+    return true if self.equal?(other)
+    return false if other.nil?
+    return false if other.class != self.class
+    [@length, @breadth] == [other.length, other.breadth] || [@length, @breadth] == [other.breadth, other.length]
   end
 
+  def hash
+    37*(@length.hash + @breadth.hash)
+  end
+
+  def eql? other
+    self == other
+  end
 
 end
 
