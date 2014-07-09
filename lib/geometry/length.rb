@@ -2,7 +2,7 @@ class Length
 
   def initialize value, unit
     @value = value
-    @unit = Unit.new unit
+    @unit = unit
   end
 
   def value_in_mm
@@ -13,7 +13,7 @@ class Length
     return true if self.equal?(other)
     return false if other.nil?
     return false if other.class != self.class
-    value_in_mm== other.value_in_mm
+    value_in_mm == other.value_in_mm
   end
 
   def hash

@@ -14,9 +14,8 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-
-Dir[File.join("#{File.expand_path(File.dirname(__FILE__))}", "..", "..", "lib", "*.rb")].map { |f| require f }
 Dir[File.join("#{File.expand_path(File.dirname(__FILE__))}", "..", "lib", "*.rb")].map { |f| require f }
+
 RSpec.configure do |config|
 
 # The settings below are suggested to provide a good initial experience

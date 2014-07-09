@@ -5,20 +5,13 @@ class Unit
   CM = Object.new
   M = Object.new
 
-
-  def initialize(value)
-    @type = value
+  def initialize(type)
+    @type = type
+    @conversion_factor_mm = 1
   end
 
   def convert_to_mm(value)
-    case @type
-      when MM
-        1 * value
-      when CM
-        10 * value
-      when M
-        1000 * value
-    end
+    value * @conversion_factor_mm
   end
 end
 

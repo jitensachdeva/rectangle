@@ -1,0 +1,6 @@
+require_relative "geometry/unit"
+require_relative "geometry/centimeter"
+require_relative "geometry/meter"
+require_relative "geometry/millimeter"
+require_relative "geometry/length"
+require_relative "geometry/rectangle"
